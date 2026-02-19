@@ -1,0 +1,21 @@
+import sys
+input = sys.stdin.readline
+
+h,w = map(int, input().split())
+output = []
+
+for _ in range(h):
+    cloud = input().rstrip()
+    res = [-1]*w
+    time = -1
+    
+    for i in range(w):
+        if cloud[i] == 'c':
+            time = 0
+        elif time != -1:
+            time += 1
+        res[i] = time
+    output.append(' '.join(map(str, res)))
+    
+print('\n'.join(output))
+    
